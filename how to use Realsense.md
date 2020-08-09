@@ -1,4 +1,4 @@
-## iiwas Cameras
+## D435i Cameras
 
 ### How to Start the Realsense Camera
 
