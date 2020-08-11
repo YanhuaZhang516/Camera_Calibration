@@ -3,8 +3,6 @@ import cv2
 import pyrealsense2 as rs
 import glob
 
-
-
 # set the camera matrix:
 
 # detect the corner of chessboard:
@@ -20,9 +18,7 @@ objp[:, :2] = np.mgrid[0:width, 0:height].T.reshape(-1, 2)  # we delete z-axis h
 images = glob.glob('cali/*.png')
 
 
-
 def extrinsic_camera_calibration(fname):
-
     # in this part, we calculate the intrinsic and extrinsic parameters from cv2.cameraCalibration
     # of each pattern view
 
@@ -36,7 +32,7 @@ def extrinsic_camera_calibration(fname):
     ret, corners = cv2.findChessboardCorners(gray, (width, height), None)
 
     # If found, add object points, image points (after refining them)
-    if ret:
+    if ret == True:
 
         objpoints.append(objp)
         corners2 = cv2.cornerSubPix(gray, corners, (11, 11), (-1, -1), criteria)
@@ -45,20 +41,22 @@ def extrinsic_camera_calibration(fname):
         # cv2.drawChessboardCorners(img, (width, height), corners2, ret)
         # cv2.imshow('img', img)
 
+        ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
+        # print("the intrinsic matrix:", mtx)
+        # print("disortion:", dist)
+        rvecs = cv2.Rodrigues(np.array(rvecs))[0]
+        tvecs = np.array(tvecs).reshape(3, 1)
+
     else:
         print("the picture from {} has problem".format(fname))
+
+
 
     # cv2.waitKey(0)
     # cv2.destroyAllWindows()
 
-    ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
-    print("the intrinsic matrix:", mtx)
-    print("disortion:", dist)
-    rvecs = cv2.Rodrigues(np.array(rvecs))[0]
-    tvecs = np.array(tvecs).reshape(3, 1)
 
     return rvecs, tvecs
-
 
 
 def world_project_camera(objpoint, rotation_matrix, translation_vector):
@@ -81,7 +79,8 @@ def draw(img, corners, imgpts):
     img = cv2.line(img, corner, tuple(imgpts[2].ravel()), (0, 0, 255), 5)
     return img
 
-#--------------------------Approach2: d435 + solvePnP()--------------------------------
+
+# --------------------------Approach2: d435 + solvePnP()--------------------------------
 
 def get_intrinsic_pipeline():
     # we could get the fixed intrinsic parameters of the realsense Camera from pyrealsense2 package
@@ -116,8 +115,8 @@ def get_intrinsic_pipeline():
 
     return intrin_matrix, disortion
 
-def get_extrinsic_pnp(fname, mtx, dist):
 
+def get_extrinsic_pnp(fname, mtx, dist):
     img = cv2.imread(fname)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -131,4 +130,15 @@ def get_extrinsic_pnp(fname, mtx, dist):
 
     return rotation_matrix, tvecs
 
-  
+
+if __name__ == "__main__":
+
+    i = 0
+    for image in images:
+        rotation_matrix, translation_vector = extrinsic_camera_calibration(image)
+        objpoint = objp[10] # unsure which point
+        objposition = world_project_camera(objpoint, rotation_matrix, translation_vector)
+        print("object position in camera coordiantion of image {} is:{}".format(i, objposition))
+        i += 1
+
+
