@@ -16,6 +16,10 @@
     - [ ] create a python file (fucntion: press "c" and it prints "hello")
     - [ ] mix with other funciton ("c"-- get data from d435i; "o"-- get data from Optitrack System)
    
+# 如何使用 realsense
+[Realsense2 在 ros中的使用](https://github.com/YanhuaZhang516/Hiwi_calibration/blob/master/how%20to%20use%20Realsense.md)
+
+# 如何使用 Optitrack System
 
 
 # 参考资料
