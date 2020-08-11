@@ -131,3 +131,4 @@ def get_extrinsic_pnp(fname, mtx, dist):
 
     return rotation_matrix, tvecs
 
+  
