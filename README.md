@@ -29,3 +29,5 @@
 4. [手眼标定](https://www.guyuehome.com/7871)
 5. [pyrealsense2 得到内参系数](https://blog.csdn.net/qq_42393859/article/details/85341279?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.nonecase)
 6. [Realsense2相机基本操作指令](https://blog.csdn.net/weixin_42361804/article/details/104144690?biz_id=102&utm_term=realsense2%E6%A0%87%E5%AE%9A&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-104144690&spm=1018.2118.3001.4187)
+7. [tf tutorial](http://wiki.ros.org/tf/Tutorials)
+8. [tf 教程mooc](https://www.youtube.com/watch?v=ZGMenuXmnrk&list=PLJE-x_JrJ3OJ97FTBIkUhFwdr3bTOVvIB&index=31)
