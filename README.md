@@ -33,3 +33,4 @@
 8. [tf 教程mooc](https://www.youtube.com/watch?v=ZGMenuXmnrk&list=PLJE-x_JrJ3OJ97FTBIkUhFwdr3bTOVvIB&index=31)
 9. [tf 简易上手tutorial](https://web.ics.purdue.edu/~rvoyles/Classes/ROSprogramming/Lectures/TF%20(transform)%20in%20ROS.pdf)
 10. [intelRealsense如何读取彩色图片](https://blog.csdn.net/pursuit_zhangyu/article/details/84258388?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-5.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-5.channel_param)
+11. [realsenseD435i reccord rgb images](https://github.com/IntelRealSense/librealsense/blob/master/wrappers/python/examples/opencv_viewer_example.py)
