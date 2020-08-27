@@ -2,20 +2,20 @@ import numpy as np
 import cv2
 import pyrealsense2 as rs
 import glob
-
+import csv
 # set the camera matrix:
 
 # detect the corner of chessboard:
 # termination criteria
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
-# the size of the chessboard (we could set it arbitrary):
-width = 8
+# the size of the chessboard (we could set it arbitrary): for my picture is 9 6
+# in the lab: 8 6
+width = 9
 height = 6
 # prepare object points, like (0,0,0), (1,0,0), (2,0,0) ....,(6,5,0)
 objp = np.zeros((width * height, 3), np.float32)
 objp[:, :2] = np.mgrid[0:width, 0:height].T.reshape(-1, 2)  # we delete z-axis here to make it as two-dimensional matrix
 # Arrays to store object points and image points from all the images.
-images = glob.glob('cali/*.png')
 
 
 def extrinsic_camera_calibration(fname):
@@ -32,6 +32,7 @@ def extrinsic_camera_calibration(fname):
     ret, corners = cv2.findChessboardCorners(gray, (width, height), None)
 
     # If found, add object points, image points (after refining them)
+
     if ret == True:
 
         objpoints.append(objp)
@@ -49,6 +50,8 @@ def extrinsic_camera_calibration(fname):
 
     else:
         print("the picture from {} has problem".format(fname))
+        rvecs = 0
+        tvecs = 0
 
 
 
@@ -131,14 +134,21 @@ def get_extrinsic_pnp(fname, mtx, dist):
     return rotation_matrix, tvecs
 
 
+
+
+
 if __name__ == "__main__":
 
-    i = 0
-    for image in images:
-        rotation_matrix, translation_vector = extrinsic_camera_calibration(image)
-        objpoint = objp[10] # unsure which point
-        objposition = world_project_camera(objpoint, rotation_matrix, translation_vector)
-        print("object position in camera coordiantion of image {} is:{}".format(i, objposition))
-        i += 1
+    # images = glob.glob('cali/*.png')
+    # i = 0
+    # for image in images:
+    #     rotation_matrix, translation_vector = extrinsic_camera_calibration(image)
+    #     objpoint = objp[10] # unsure which point
+    #
+    #     if rotation_matrix !=0 and translation_vector!=0:
+    #         objposition = world_project_camera(objpoint, rotation_matrix, translation_vector)
+    #         print("object position in camera coordiantion of image {} is:{}".format(i, objposition))
+    #
+    #     i += 1
 
-
+    f = open('record.cv', 'w')
