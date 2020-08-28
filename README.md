@@ -7,20 +7,22 @@
 # 任务
 - [x] get the extrinsic and intrinsic(fixed) paremeters of the chessboard in Realsense D435i
 - [x] get the 3D positon of the corner point in camera coordination (D435i) (two approaches)
-- [ ] save the data (d435i) in a list
+- [x] save the data (d435i) in a list
 - [ ] Optitrack Detection
   - [ ] By ros, get tf between chessboard-world
   - [ ] from tf get 3D position
   - [ ] save data in a list
- - [ ] create a pyton file, both d435i/Opt in one file
-    - [ ] create a python file (fucntion: press "c" and it prints "hello")
-    - [ ] mix with other funciton ("c"-- get data from d435i; "o"-- get data from Optitrack System)
+ - [x] create a pyton file, both d435i/Opt in one file
+    - [x] create a python file (fucntion: press "c" and it prints "hello")
+    - [x] mix with other funciton ("c"-- get data from d435i; "o"-- get data from Optitrack System)
    
+# The problem I have met when I code
+
 # 如何使用 realsense
 [Realsense2 在 ros中的使用](https://github.com/YanhuaZhang516/Hiwi_calibration/blob/master/how%20to%20use%20Realsense.md)
 
 # 如何使用 Optitrack System
-
+[how to use optitrack](https://github.com/YanhuaZhang516/Camera_Calibration/blob/master/how%20to%20use%20optitrack.md)
 
 # 参考资料
 1. [OpenCV Camera Calibration](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_calib3d/py_calibration/py_calibration.html)
