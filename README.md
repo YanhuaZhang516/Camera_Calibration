@@ -1,5 +1,5 @@
 # calibration
-此处相机标定主要分为两部分：
+此处相机标定主要分为三部分：
 1. 完成 Realsense D435i的内参获取以及求出外参数，求出真实世界坐标与相机坐标的关系
 2. 通过 Optitrack System 获得中心点的实际坐标，求出其与D435i 的转换坐标
 3. 匹配 D435i 和 Optitrack System 两个相机系统
@@ -17,6 +17,7 @@
     - [x] mix with other funciton ("c"-- get data from d435i; "o"-- get data from Optitrack System)
    
 # The problem I have met when I code
+https://github.com/YanhuaZhang516/Camera_Calibration/blob/master/code_problem.md
 
 # 如何使用 realsense
 [Realsense2 在 ros中的使用](https://github.com/YanhuaZhang516/Hiwi_calibration/blob/master/how%20to%20use%20Realsense.md)
