@@ -10,3 +10,21 @@ ValueError: The truth value of an array with more than one element is ambiguous.
 判断是否存在 0，用 `a.any()`; 是否全为0, 用`a.all()`。
 
 所以两种情况都不是我想要的，应该另数组为`a=None`
+
+## problem 2:
+```
+Multiple realsense udev-rules were found:
+1:/etc/udev/rules.d/99-realsense-libusb.rules
+2: /lib/udev/rules.d/60-librealsense2-udev-rules.rules
+Make sure to remove redundancies!
+
+```
+I ran the command:
+```
+sudo cp ~/.99-realsense-libusb.rules /etc/udev/rules.d/99-realsense-libusb.rules && sudo udevadm control --reload-rules && udevadm trigger
+```
+and removed the duplicate:
+```
+sudo rm /lib/udev/rules.d/60-librealsense2-udev-rules.rules
+```
+the problem is solved and I don't get the warning anymore.
