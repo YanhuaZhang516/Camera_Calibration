@@ -8,16 +8,20 @@
 - [x] get the extrinsic and intrinsic(fixed) paremeters of the chessboard in Realsense D435i
 - [x] get the 3D positon of the corner point in camera coordination (D435i) (two approaches)
 - [x] save the data (d435i) in a list
-- [ ] Optitrack Detection
-  - [ ] By ros, get tf between chessboard-world
-  - [ ] from tf get 3D position
-  - [ ] save data in a list
+- [ ] get online data through d435i
+- [x] Optitrack Detection
+  - [x] By ros, get tf between chessboard-world
+  - [x] from tf get 3D position
+  - [x] save data in a list
  - [x] create a pyton file, both d435i/Opt in one file
     - [x] create a python file (fucntion: press "c" and it prints "hello")
     - [x] mix with other funciton ("c"-- get data from d435i; "o"-- get data from Optitrack System)
    
 # The problem I have met when I code
 https://github.com/YanhuaZhang516/Camera_Calibration/blob/master/code_problem.md
+
+# The trick I have learned through this project
+
 
 # 如何使用 realsense
 [Realsense2 在 ros中的使用](https://github.com/YanhuaZhang516/Hiwi_calibration/blob/master/how%20to%20use%20Realsense.md)
